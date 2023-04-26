@@ -1,0 +1,39 @@
+#yards-proiect{
+    --color1:var(--maro);
+    --color2:var(--verde-inchis);
+}
+
+td, th{
+    border: 1px solid var(--color1);
+
+
+}
+
+tr:nth-child(even) td {
+    border-bottom-color: var(--color1);
+  }
+  
+tr:nth-child(odd) td {
+    border-bottom-color: var(--color2);
+  }
+  
+
+#tabel{
+    caption-side: bottom;
+    border: 5px solid var(--color1);
+    border-collapse: collapse;
+
+    background:hsl(61, 55%, 85%);
+    
+}
+
+
+#tabel tr:hover {
+    outline: 5px solid rgba(234, 175, 224, 0.7);
+  }
+  
+  #tabel tr {
+    outline: 5px solid rgba(234, 175, 224, 0);
+    transition: all 0.5s linear;
+
+  }

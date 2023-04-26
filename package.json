@@ -1,0 +1,25 @@
+{
+  "name": "tema4",
+  "version": "1.0.0",
+  "description": "Magazin pentru pasionatii de lucru manual cu fibra. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilinca-Ana Moraru",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "sass": "^1.62.0",
+    "sharp": "^0.32.0"
+  },
+  "keywords": [
+    "Romania",
+    "andrea",
+    "croseta",
+    "lana",
+    "crosetat"
+  ]
+}

@@ -1,0 +1,52 @@
+.taburi-iframe{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.taburi-iframe > *{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+
+   
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: var(--latime-buton);
+    text-decoration: none;
+
+    font-weight: bold;
+    
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin: 1vw;
+
+    border: 0.3vw solid var(--border-color);
+    border-radius: 1vw;
+
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+
+    transition: all 0.2s linear;
+
+}
+
+.taburi-iframe > *:hover{
+background:var(--verde-inchis);
+}
+
+
+.ifr{
+    border:0.5vw solid var(--verde-inchis);
+    width: 70vw;
+
+}

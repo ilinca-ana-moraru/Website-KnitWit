@@ -1,0 +1,156 @@
+{
+    "cale_galerie":"resurse/produse",
+    "imagini":[
+        {
+            "cale_fisier":"air.jpg",
+            "titlu":"DROPS Air",
+            "text_descriere":"Fir de grosime medie din baby alpaca și lână merinos",
+            "anotimp":["toamna","iarna","primavara"]
+            },
+        {
+            "cale_fisier":"alaska.jpg",
+            "titlu":"DROPS Alaska",
+            "text_descriere":"Ah! Tradiționala lână!",
+            "anotimp":["iarna"]
+            },
+        {
+            "cale_fisier":"alpaca_boucle.jpg",
+            "titlu":"DROPS Alpaca Boucle",
+            "text_descriere":"Moale, ușor și plin de bucle!",
+            "anotimp":"primavara"
+            },
+        {
+            "cale_fisier":"alpaca.jpg",
+            "titlu":"DROPS Alpaca",
+            "text_descriere":"Dintotdeauna numărul 1 în topul preferințelor, făcut în întregime din lână fină de alpaca",
+            "anotimp":"primavara"
+            },
+        {
+            "cale_fisier":"andes.jpg",
+            "titlu":"DROPS Andes",
+            "text_descriere":"Un amestec moale și gros de alpaca și lână.",
+            "anotimp":["toamna","iarna"]
+            },
+        {
+            "cale_fisier":"baby_merino.jpg",
+            "titlu":"DROPS Baby Merino",
+            "text_descriere":"Lână extra fină merino ce poate fi spălată la mașină",
+            "anotimp":["toamna","iarna"]
+            },
+        {
+            "cale_fisier":"bomull-lin.jpg",
+            "titlu":"DROPS Bomull-Lin",
+            "text_descriere":"Eleganta rustica din bumbac si in.",
+            "anotimp":"vara"
+            },
+        {
+            "cale_fisier":"fabel.jpg",
+            "titlu":"DROPS Fabel",
+            "text_descriere":"Lână de șosete tratată Superwash",
+            "anotimp":["primavara","toamna","iarna"]
+            },
+        {
+            "cale_fisier":"flora.jpg",
+            "titlu":"DROPS Flora",
+            "text_descriere":"Confort zilnic învăluită în alpaca și lână",
+            "anotimp":["toamna","iarna"]
+            },
+        {
+            "cale_fisier":"karisma.jpg",
+            "titlu":"DROPS Karisma",
+            "text_descriere":"Lână tradițională tratată pentru o super spălare",
+            "anotimp":["toamna","primavara"]
+            },
+        {
+            "cale_fisier":"kid-silk.jpg",
+            "titlu":"DROPS Kid Silk",
+            "text_descriere":"Un mix uimitor de mohair super kid și mătase",
+            "anotimp":["primavara","toamna"]
+            },
+        {
+            "cale_fisier":"lima.jpg",
+            "titlu":"DROPS Lima",
+            "text_descriere":"Firul perfect de zi cu zi!",
+            "anotimp":["iarna","primavara"]
+            },                                
+        {
+            "cale_fisier":"melody.jpg",
+            "titlu":"DROPS Melody",
+            "text_descriere":"Un amestec voluptos de lână merino și alpaca pieptănată",
+            "anotimp":["primavara","toamna","iarna"]
+            },
+        {
+            "cale_fisier":"merino_extra_fine.jpg",
+            "titlu":"DROPS Merino Extra Fine",
+            "text_descriere":"Lână extra fină merino ce poate fi spălată la mașină",
+            "anotimp":["primavara","toamna","iarna"]
+            },
+        {
+            "cale_fisier":"muskat.jpg",
+            "titlu":"DROPS Muskat",
+            "text_descriere":"Bumbac mercerizat cu luciu colorat!",
+            "anotimp":"vara"
+            },
+        {
+            "cale_fisier":"nepal.jpg",
+            "titlu":"DROPS Nepal",
+            "text_descriere":"Firul perfect de zi cu zi!",
+            "anotimp":["primavara","toamna"]
+            },
+        {
+            "cale_fisier":"nord.jpg",
+            "titlu":"DROPS Nord",
+            "text_descriere":"Mătăsos și durabil cu alpaca, lână și poliamidă",
+            "anotimp":"iarna"
+            },
+        {
+            "cale_fisier":"paris.jpg",
+            "titlu":"DROPS Paris",
+            "text_descriere":"Bumbac de tricotat ușor și distractiv!",
+            "anotimp":"vara"
+            },
+        {
+            "cale_fisier":"polaris.jpg",
+            "titlu":"DROPS Polaris",
+            "text_descriere":"Ideal pentru împâslire!",
+            "anotimp":"iarna"
+            },
+        {
+            "cale_fisier":"puna.jpg",
+            "titlu":"DROPS Puna",
+            "text_descriere":"Catifelare desăvârșită din alpaca",
+            "anotimp":["toamna","iarna"]
+            },
+        {
+            "cale_fisier":"safran.jpg",
+            "titlu":"DROPS Safran",
+            "text_descriere":"Bumbac egiptean pieptănat în orice culoare!",
+            "anotimp":["primavara","vara"]
+            },
+        {
+            "cale_fisier":"sky.jpg",
+            "titlu":"DROPS Sky",
+            "text_descriere":"Extra delicat și ușor din baby alpaca și lână merino",
+            "anotimp":["toamna","primavara"]
+            },
+        {
+            "cale_fisier":"snow.jpg",
+            "titlu":"DROPS Snow",
+            "text_descriere":"Ideal pentru împâslire!",
+            "anotimp":"iarna"
+            },
+        {
+            "cale_fisier":"soft-tweed.jpg",
+            "titlu":"DROPS Soft Tweed",
+            "text_descriere":"Un clasic Tweed din Alpaca Superfină și Lână Merinos",
+            "anotimp":["toamna","primavara"]
+            },     
+        {
+            "cale_fisier":"wish.jpg",
+            "titlu":"DROPS Wish",
+            "text_descriere":"Un fir de vis din baby alpaca, lână merino și bumbac pima.",
+            "anotimp":["primavara","toamna"]
+            }
+                                    
+    ]
+}

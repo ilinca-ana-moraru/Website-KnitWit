@@ -1,0 +1,34 @@
+html{
+    font-size: 14px;
+    transition: font-size 0.3s linear;
+
+}
+
+body{
+    --spatiere-pagina:10px;
+    --padding-sectiune:5px;
+}
+
+#grid-pagina{
+    display: grid;
+
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+        "z-welcome"
+        "z-yards-proiect"
+        "z-evenimente" 
+        "z-anunturi" 
+        "z-utilizatori-online"
+        "z-server" 
+        "z-statistici"
+        "z-creatii"
+        "z-extra "
+                        ;  
+        gap:20px 10px;   
+                             
+}
+
+
+#yards-proiect{
+    overflow-x: scroll;
+}

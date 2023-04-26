@@ -1,0 +1,36 @@
+html{
+    font-size: 16px;
+    transition: font-size 0.3s linear;
+}
+
+/* modificam doar variabila nimic altceva */
+body{
+    --spatiere-pagina:30px;
+    --padding-sectiune:10px;
+}
+
+/* astfel am site-uul pe doua coloane pt ecranul mediu */
+#grid-pagina{
+    grid-template-columns: 1fr, 1fr; /* repeat(2, 1fr)*/
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "z-welcome z-welcome "
+        "z-yards-proiect z-evenimente" 
+        "z-yards-proiect  z-anunturi" 
+        "z-utilizatori-online  z-server" 
+        "z-statistici z-statistici"
+        "z-creatii z-creatii "
+        "z-extra z-extra "
+                        ;  
+
+}
+
+#yards-proiect{
+    overflow-x: scroll;
+}
+
+ul.meniu li i{
+    opacity:0;
+}

@@ -1,0 +1,13 @@
+html{
+    --opacitate-text-reduceri:0;
+}
+
+
+.text-reduceri{
+    opacity:val(--opacitate-text-reduceri);
+    color:aqua;
+}
+
+#poza-reduceri:hover{
+    --opacitate-text-reduceri:1;
+}

@@ -1,0 +1,54 @@
+#triunghi >*{
+    box-sizing: border-box;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: 900;
+    border-radius: 25px;
+
+   
+    text-decoration: none;
+    color:var(--verde-inchis);
+    background-color: var(--highlight-color);
+    border: 5px solid var(--verde-inchis);
+
+    opacity:var(--opacitate-triunghi);
+
+    position: fixed;
+
+    
+}
+
+#tooltip:hover{
+    --opacitate-text-explicativ: 1;
+    --opacitate-triunghi:1;
+}
+
+#tooltip>*:hover{
+    transition: all 0.3s linear;
+}
+
+#text-explicativ {
+    opacity:var(--opacitate-text-explicativ);
+    box-sizing: border-box;
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    right: 22.5px;
+
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:var(--text-color);
+    background-color: white;
+    border: 1px solid var(--text-color);
+    width: 35px;
+
+}

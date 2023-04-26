@@ -1,0 +1,178 @@
+html{
+    --f-size:18px;
+    font-size: var(--f-size);
+    transition: font-size 0.3s linear;
+    --opacitate-text-explicativ:0;
+    --opacitate-triunghi:0.4;
+    margin: 0px;
+    padding: 0px;
+    --padding-intern: 0.5 rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    }
+
+body{
+    --maro:#261F20;
+    --verde-inchis:#6C8C89;
+    --verde-mediu:#92A69C;
+    --verde-deschis:#d3e6cc;
+    --gri:#71736E;
+
+    --border-color:#261F20;
+    --header-color:#261F20;
+    --footer-color:#261F20;
+    --text-color:#261F20;
+
+    --highlight-color:#92A69C;
+    --background-color:#d3e6cc;
+    --header-footer-text-color:#71736E;
+  
+    --spatiere-pagina:50px;
+    --padding-sectiune:15px;
+
+    --latime-buton: 20vw;
+    --inaltime-buton:10vw;
+
+    --culoare-meniu:var(--verde-mediu);
+    --culoare-border-buton:var(--gri);
+
+    --inaltime-meniu:15px;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+body.dark{
+    --background-color:#261F20;
+    --text-color:#d3e6cc;
+}
+
+
+
+body{
+    background-color: var(--background-color);
+    color:var(--text-color);
+    /* punem aici un padding */
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+    
+}
+
+header{
+    color:var(--highlight-color);
+    background: var(--header-color);
+    margin-left: calc(-1 * var(--spatiere-pagina));
+    margin-right: calc(-1 * var(--spatiere-pagina));
+    /* border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw; */
+}
+
+footer{
+    color:var(--verde-deschis);
+    background: var(--header-color);
+    margin-top: 5vw;
+    margin-left: calc(-1 * var(--spatiere-pagina));
+    margin-right: calc(-1 * var(--spatiere-pagina));
+    padding-top:2vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+
+ 
+}
+
+img{
+    /* asta face imaginea foarte mare pe un ecran mare (umple tot ecranul) */
+    width:100%; 
+    /* problema se rezolva cu un max-width */
+    /* pun toate imaginile in aceeasi clasa ca sa afectez doar un grup de imagini */
+    max-width:700px;
+}
+
+
+#welcome-foto{
+    grid-area:z-welcome-foto;
+    text-align: center;
+    --padding-sectiune: 3vw;
+
+}
+
+
+
+
+h1{
+   
+    font-family: 'Tilt Warp', cursive;
+    display:inline;
+
+}
+
+h2{
+    text-align: center;
+
+}
+
+
+#heart{
+    display:inline;
+    animation-name: animatie_inima;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count:1;
+    
+    
+}
+
+a[href^="http"]{
+    text-decoration: underline;
+    color:var(--text-color);
+}
+
+
+a[href^="http"]::before{
+    content:"⮳";
+    font-size: calc(var(--f-size)*3/2);
+}
+
+a[href^="http"]:hover::before{
+    color:var(--gri);
+}
+
+footer a{
+    text-decoration: underline;
+    color:var(--verde-deschis);
+}
+
+footer a[href^="http"]{
+    text-decoration: underline;
+    color:var(--verde-deschis);
+}
+
+footer a[href^="http"]::before{
+    content:"";
+    font-size: calc(var(--f-size)*3/2);
+}
+
+.meniu a:active{
+    border: 0.3vw solid var(--border-color);
+}
+
+
+@keyframes animatie_inima{
+    0%{
+        opacity:0;
+        
+    }
+    50%{
+        opaticity:0.7;
+    }
+    100%{
+        
+        opacity:1;
+       
+    }
+}
+

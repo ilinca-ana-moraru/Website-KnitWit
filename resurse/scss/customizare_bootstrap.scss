@@ -1,0 +1,27 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
+(
+    $primary: #261F20,
+    $secondary: #71736E,
+    $body-bg: #d3e6cc,
+    $table-caption-color: #261F20,
+    $h1-font-size: 2rem,
+    $h2-font-size: 1.5rem,
+    $font-family-base: "Segoe UI",
+    $display-font-style: cursive,
+    $grid-breakpoints: (
+  xs: 0,
+  sm: 500px,
+  md: 700px,
+  lg: 950px,
+  xl: 1200px,
+  xxl: 1450px
+),
+$container-max-widths: (
+  sm: 480px,
+  md: 580px,
+  lg: 930px,
+  xl: 1160px,
+  xxl: 1400px
+),
+$border-radius: .5rem
+)

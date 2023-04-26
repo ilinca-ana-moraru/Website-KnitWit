@@ -1,0 +1,18 @@
+@media print {
+body{
+background: pink;
+}
+
+#grid-pagina{
+    display: block;
+    grid-template-areas: 
+    "z-welcome z-welcome z-welcome z-welcome"
+    "z-yards-proiect z-yards-proiect z-evenimente z-evenimente" 
+    "z-yards-proiect z-yards-proiect z-anunturi z-anunturi" 
+    "z-utilizatori-online z-statistici z-statistici z-server" 
+    "z-creatii z-creatii z-creatii z-creatii";                    
+}
+
+
+}
+

@@ -1,0 +1,117 @@
+#grid-pagina{
+    
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "z-welcome z-welcome z-welcome z-welcome"
+        "z-yards-proiect z-yards-proiect z-evenimente z-evenimente" 
+        "z-yards-proiect z-yards-proiect z-anunturi z-anunturi" 
+        "z-utilizatori-online z-statistici z-statistici z-server" 
+        "z-creatii z-creatii z-creatii z-creatii"
+        "z-extra z-extra z-extra z-extra"
+                        ;  
+    gap:20px 10px; 
+        
+    text-align: center;
+
+
+}
+
+#grid-pagina > * {
+    --padding-sectiune: 1vw;
+    --border-sectiune: 0.3vw;
+
+    border-radius: 1vw;
+    box-sizing: content-box;
+    text-align: center;
+    --latime: calc(100% - 2 * var(--padding-sectiune) - 2 *var(--border-sectiune));
+    width: var(--latime);
+
+    border: var(--border-sectiune) solid var(--border-color);
+    padding-left: var(--padding-sectiune);
+    padding-right:var(--padding-sectiune);
+    padding-top:var(--padding-sectiune);
+    padding-bottom: var(--padding-sectiune);
+}
+
+#welcome{
+    grid-area: z-welcome;
+    --padding-sectiune: 3vw;
+    
+}
+
+
+#yards-proiect{
+    grid-area: z-yards-proiect;
+
+    text-align: center;
+}
+
+#tabel{
+    
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+#evenimente{
+    grid-area: z-evenimente;
+}
+#anunturi{
+    grid-area: z-anunturi;
+}
+ #utilizatori-online{
+    grid-area: z-utilizatori-online;
+}
+#statistici{
+    grid-area: z-statistici;
+}
+#server{
+    grid-area: z-server;
+}
+#creatii{
+    display: grid;
+    grid-area: z-creatii;
+    width: 100% - 2* var(--padding-sectiune) - 2* var(--border-sectiune);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "z-titlu-creatii z-titlu-creatii z-titlu-creatii"
+        "z-creatie1 z-creatie2 z-creatie3" 
+                        ;
+                        gap:0px 10px;  
+
+}
+
+#creatii > * {
+    border: 3px solid var(--header-footer-text-color);
+    /* padding fara -left pune padding peste tot */
+    padding:var(--padding-sectiune);
+    /* gap:20px 10px;    */
+}
+
+#titlu-creatii{
+    grid-area: z-titlu-creatii;
+    justify-content: center;
+    border-style: none;
+    padding-top: calc( var(--padding-sectiune)/2);
+
+}
+
+#creatie1{
+    grid-area: z-creatie1;
+}
+
+#creatie2{
+    grid-area: z-creatie2;
+}
+
+#creatie3{
+    grid-area: z-creatie3;
+}
+
+#extra{
+    grid-area:z-extra;
+}
