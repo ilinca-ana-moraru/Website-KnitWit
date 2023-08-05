@@ -25,7 +25,7 @@
     border-radius: 1vw;
     box-sizing: content-box;
     text-align: center;
-    --latime: calc(100% - 2 * var(--padding-sectiune) - 2 *var(--border-sectiune));
+    --latime: calc(100% - 2 * var(--padding-sectiune) -  1*var(--border-sectiune));
     width: var(--latime);
 
     border: var(--border-sectiune) solid var(--border-color);
@@ -54,6 +54,8 @@
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
+    color:var(--table-color);
+    background:var(--table-background-color);
 
 }
 

@@ -9,6 +9,10 @@
         <%- include("../fragmente/head.ejs")  %>
         <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="/resurse/css/customizare_bootstrap.css" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script type="text/javascript" src=/resurse/js/carousel.js></script>
+
 
     </head>
 
@@ -20,20 +24,32 @@
         <div id = "grid-pagina">
             <div id = "welcome">
                 <div id ="welcome-foto">
-                    <figure>
-                        <picture>
-                            <source srcset="./resurse/main_foto/main-foto_50.jpg"  media="(max-width:700px)">
-                            <source srcset="./resurse/main_foto/main-foto_75.jpg"  media="(max-width:1200px)">
-                            <img src="./resurse/main_foto/main-foto.jpg" alt="imagine de prezentare">
-                        </picture>
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                  
+                        <div class="carousel-inner">
+                            <%
+                            for (produs of locals.produse){%>
+                                <div class="element">
+                                    <img class="c-img" src="/resurse/imagini/produse/<%-produs.imagine%>">
+                                </div>
+                            <%}%>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+            
                     
-                        <figcaption><p>Da-i drumul la creat!</p>
-                        <p><b>Lana</b>, <b>andrele</b>, <b>crosete</b> sau orice altceva? Gasesti totul aici</p></figcaption>
-                    </figure>
                 </div>
-                
+
                 <h2>Despre noi </h2>
-                <button class="btn btn-primary">ceva</button>
+                <!-- <button class="btn btn-primary">ceva</button> -->
                 <p>Suntem un <b>small business</b> nou in <b>Romania</b> ce s-a nascut din dorinta de a aduce in tara produse de calitate la preturi bune
                 pentru <b>hobby</b>-ul pe care tu si noi il iubim!</p>
                 <p>Rasfata-te cu cele mai fine <b>texturi</b> si cele mai frumoase <b>culori</b> sau lasa-te inspirat de <b>comunitatea</b> nostra si <b>creatiile</b> acesteia.</p>
@@ -45,6 +61,7 @@
                 </p>
               
             </div>
+
 
             <div id="yards-proiect">
                 <table id="tabel">
@@ -129,7 +146,7 @@
 
             <div id = "utilizatori-online" >
                 <h2>Utilizatori Online</h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, veniam ut. Totam, quos exercitationem velit vitae sunt iure corrupti autem dolore obcaecati eaque recusandae! Inventore impedit facilis architecto deleniti eligendi.
+                <p>IP-ul tau este <%-ip%></p>
             </div>
 
             <div id="statistici" >
@@ -221,9 +238,9 @@
                             <picture>
                                 <source srcset="<%- imag.fisier_mic %>" media="(max-width:700px)" />
                                 <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
-                                <img src="<%- imag.fisier %>" alt="imagine">
+                                <img src="<%- imag.fisier %>" alt=<%- imag.titlu %>>
                             </picture>
-                            <figcaption><%- imag.titlu %></figcaption>
+                            <figcaption><%- imag.text_descriere %></figcaption>
                         </figure>
             
             

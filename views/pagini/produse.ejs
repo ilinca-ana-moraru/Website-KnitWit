@@ -1,46 +1,91 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
-        <title>Cofetăria Dulcelind - home</title>
+        <meta name = "keywords" content = "Romania, andrea, croseta, lana, crosetat,
+        tricotat, fiber arts, fiber shop, accesorii, creatie, diy, small business">
+       <meta name = "description" content = "Magazin pentru pasionatii de lucru manual cu fibra. 
+       Lana, andrele, crosete, accesorii si inspiratie.">
+        <title> Knit Wit</title>
+        <link href="/resurse/css/produse.css" type="text/css" rel="stylesheet" />
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
+
 
     </head>
     <body>
     <%- include("../fragmente/header") %>
 
     <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Calorii:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Dietetic (calorii &lt; 350)
-                <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
-            </label></p>
-            <p><label>Mediu (350 &le; calorii &lt; 700)
-                <input id="i_rad2"  name="gr_rad" value="350:750" type="radio"/>
+
+        <div class="mx-2" id="inp-categorie"> Categorie:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+            <label>Lana
+                <input id="i_rad1"  name="gr_rad" value="lana" type="radio"/>
             </label>
-            <p><label>Ridicat caloric (700 &le; calorii)
-                <input id="i_rad3" name="gr_rad" value="700:1000000000" type="radio"/>
+            <label>Accesorii
+                <input id="i_rad2"  name="gr_rad" value="accesorii" type="radio"/>
             </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
+            <label>Toate
+                <input id="i_rad3" name="gr_rad" value="toate" checked="true" type="radio"/>
             </label>
+
+            <label class="mx-2"> Nume: <input type="text" id="inp-nume"></label>
+
+
         </div>
+<br>
+
+        <div>
+            <label class="my-2"> Cuvant Cheie:</label>
+            <textarea  type="text" rows="1" id="inp-descriere"></textarea>
+        <label class="mx-2">
+            Doar cele spalabile la masina
+            <input id="i_check1" name="name_spalabil" type="checkbox">
+            Doar cele potrivite pentru sosete 
+            <input id="i_check2" name="name_sosete" type="checkbox">
+        </label>
+        
+        </div>
+<br>    
+        <div class="d-flex justify-content-left">
+        <label class="mx-2">Grosime:
+            <input list="id_lista" id="i_datalist">
+            <datalist id="id_lista">
+                <option name="interval" value="0:3">0:3</option>
+                <option name="interval" value="3:6">3:6</option>
+                <option name="interval" value="6:9">6:9</option>
+                <option name="interval" value="9+">9+</option>
+
+            </datalist>
+        </label>
+
+        
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70" step=""> <span id="infoRange">(0)</span></label>
 
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
-            <select id="inp-categorie">
+        <label class="mx-2">Select simplu:
+            <select id="inp-brand">
                 <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
+                <% for (let opt of locals.branduri) { %>
                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
                 <% } %>
             </select>
         </label>
+
+        <label class="compozitie mx-2"><id="comp">Compozitie:</id>
+            <i class="fa-solid fa-caret-down"></i>
+                <select id="inp-materiale" class="selectpicker" multiple>
+                <option id="sel-multiplu-toate" selected >
+                    toate
+                </option>
+                <% for (let opt of locals.compozitie) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+            </select>
+        </label>
+        </div>
+<br>
         <p>
+
         <button id="filtrare">Filtreaza</button> 
 
         <button id="resetare">Reseteaza</button><br/>
@@ -57,11 +102,25 @@
                     <article class="produs" >
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="calorii">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
+                            <div class="pret"><span class="criteriu">Pret: </span><span class="val-pret"><%- prod.pret%> lei</span> </div>
+                                                        <!-- da -->
+                            <div class="grosime"><span class="criteriu">Grosime: </span><span class="val-grosime"><%- prod.grosime%> mm</span></div>
+                            <div class="gramaj"><span class="criteriu">Gramaj: </span><span class="val-gramaj"><%- prod.gramaj%> g</span></div>
+                            <div class="brand"><span class="criteriu">Brand: </span><span class="val-brand"><%- prod.brand%></span></div>
+                                                        <!-- da -->
+                            <div class="spalabil_la_masina"><span class="criteriu">Poate fi spalat la masina: </span><span class="val-spalabil_la_masina"><%- prod.spalabil_la_masina%></span></div>
+                                                        <!-- da -->
+                            <div class="pentru_sosete"><span class="criteriu">Pentru sosete: </span><span class="val-pentru_sosete"><%- prod.pentru_sosete%></span></div> 
+
+                            <div class="compozitie"><span class="criteriu">Compozitia produsului: </span><span class="val-compozitie"><%- prod.compozitie%></span></div>
+                            <!-- da -->
+                            <div class="data"><span class="criteriu">Disponibil din: </span><span class="val-data"><%- prod.data_adaugare%></span></div>
+
+                            <div class="descriere"><span class="criteriu">Descriere: </span><span class="val-descriere"><%- prod.descriere%></span></div>
+
+
                         </div>
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p> 
                         <figure>
                             <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                         </figure>
@@ -72,6 +131,8 @@
                     </article>
                 <% }%>
             </div>
+
+          
         </section>
     </main>
 

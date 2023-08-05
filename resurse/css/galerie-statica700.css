@@ -1,8 +1,8 @@
-   @media screen and (max-width:700px){
+@media screen and (max-width: 700px) {
     #grid-galerie {
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-areas:
-        grid-item;
+      display: grid;
+      grid-template-columns: repeat(2fr);
+      grid-row-gap: 0.5em;
+      grid-column-gap: 0.5em;
     }
-}
+  }

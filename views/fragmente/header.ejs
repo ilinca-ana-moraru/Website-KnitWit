@@ -1,33 +1,101 @@
+<script src="/resurse/js/tema.js"></script>
+<script type="text/javascript" src=/../module_proprii/utilizator.js></script>
+
 <header id="Pagina_Principala">
     <h1 >Knit Wit <span id ="heart" class="fa-solid fa-heart"></span></h1></br>
     <q>We don’t make mistakes, just happy little accidents.</q>
     <cite>Bob Ross</cite>
+    <!-- <p> da eroare cand pui utilizator inexistent -> 5 min cauta rezolvarea daca nu te ajut eu -->
+        <% 
+        if(!locals.utilizator) 
+        {%>
+            <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                <p>
+                    <label>
+                        Username: <input type="text" name="username" id="inp-username" value="" required>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Parola: <input id="parl" type="password" required  name="parola" value="">
+                    </label>
+                </p>
+                <p><input type="submit" value="Logare"></p>
+            </form>
+            <p>
+                <%if (locals.mesajLogin)
+                {%>
+                    <%- locals.mesajLogin %>
+                <%}%>
+            </p>
+        <%} 
+
+        else
+        {%>
+            <p>
+                <%if (locals.mesajLogin)
+                {%>
+                    <%- locals.mesajLogin %>
+                <%}%>
+                <br>
+                <!-- <img src="./poze_uploadate/default/poza_default.jpg" alt="poza utilizator" style="width:5%;height:auto;"> -->
+                <img src=<%- locals.utilizator.poza %> alt="poza utilizator" style="width:5%;height:auto;">
+                <%-locals.utilizator.username%>
+                <button><a href="/logout">Logout</a></button>
+                <br>
+            </p>
+        <%}%>
+
 </header>
 
     <nav >
         <ul class="meniu">
 
-            <li><a href="#Pagina_Principala"><div id ="pag-prin-text">Pagina Principala</div>
+            <li><a href="/"><div id ="pag-prin-text">Pagina Principala</div>
                 <span id="house" class="fa-solid fa-house"></span></a>
             </li>
-            <li><a href="#Lana">Produsele Noastre</a>
+
+            
+            <li><a href="/produse">Produsele Noastre</a>
                 <ul>
-                    <li><a href="#Lana">Lana</a></li>
-                    <li><a href="#Accesorii">Accesorii</a></li>
+                    <li><a href="/produse">Toate Produsele</a></li>
+                    <li><a href="/produse?tip=lana">Lana</a></li>
+                    <li><a href="/produse?tip=accesorii">Accesorii</a></li>
                 </ul>
                 </li>
 
-                <!-- <li><a href="/produse">Produsele Noastre</a>
-                    <ul>
-                        <li><a href="/produse?tip=lana">Lana</a></li>
-                        <li><a href="/produse?tip=accesorii">Accesorii</a></li>
-                    </ul>
-                </li> -->
-            <li><a href="#Contul_Tau">Contul Tau</a></div>
-                <ul>
-                    <li><a href="#Creeaza-ti_un_Cont">Creeza-ti un Cont</a></li>
-                    <li><a href="#ComenzileTale">Comenzile Tale</a></li>
-                </ul> 
+
+            <li><a href="/inregistrare">Inregistrare</a></div>
+                <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
+                    <li><div>Administrare</div>
+                        <ul>
+                            <li><a href="/useri">Useri</a></li>
+                            <li><a href="/grafice">Grafice</a></li>
+                            <li><a href="/comenzi">Comenzi</a></li>
+                        </ul>
+                    </li>
+                <% } %>
+                <% if(locals.utilizator) { %>
+                    <li><div><%- locals.utilizator.username %></div>
+                        <ul>
+                            <li><a href="/profil">Profil</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                <% } %>
+            </li>
+            <li><a href="/reduceri">Reduceri</a>
+            </li>
+            <li>
+                <button id="tema"><i class="fa-solid fa-paint-roller"></i>
+
+                </button>
             </li>
         </ul>
     </nav>
+
+
+
+
+    <!-- <span class="fa-solid fa-sun-bright"></span> -->
+    <!-- <i class="fa-solid fa-moon"></i> -->
