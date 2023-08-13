@@ -93,7 +93,6 @@
         <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
         
         </p>
-        
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
         <section id="produse">
             <h2>Produse</h2>
@@ -117,20 +116,73 @@
                             <div class="data"><span class="criteriu">Disponibil din: </span><span class="val-data"><%- prod.data_adaugare%></span></div>
 
                             <div class="descriere"><span class="criteriu">Descriere: </span><span class="val-descriere"><%- prod.descriere%></span></div>
-
-
-                        </div>
+                            
+                       
                         <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p> 
                         <figure>
                             <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                         </figure>
-                        <label class="selecteaza-cos">
+                        <!-- <label class="selecteaza-cos">
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                        </label>
+                        </label> -->
+
+                        <!-- style="display: none;" -->
+                        <div id="butoane-filtrare">
+                            <label id="buton1">
+                                <i id="icon-buton1" class="fa-solid fa-thumbs-up"></i>
+                                <!-- <i class="fa-solid fa-thumbtack"></i> -->
+                                <div id="text-buton1">Pastreaza produsul indiferent de filtrare</div>
+                                <input  id="buton-pastrare" name="pastrare" type="checkbox" >
+                            </label>
+
+                            <label id="buton2">
+                                <i class="fa-solid fa-x"></i>
+                                <div id="text-buton2">Elimina produsul pentru aceasta filtrare</div>
+                                <input style="display: none;" id="buton-stergere-filtrare" name="stergere-filtrare" type="checkbox" >
+                            </label>
+
+                            <label id="buton3">
+                                <i class="fa-solid fa-trash"></i>
+                                <div id="text-buton3">Elimina produsul pentru aceasta sesiune</div>
+                                <input style="display: none;" id="buton-stergere-sesiune" name="stergere-sesiune" type="checkbox" >
+                            </label>
+                        </div>
+                        
+
+                        
                     </article>
                 <% }%>
             </div>
+                <% 
+                    nr_prod = locals.produse.length
+                    prod_per_pg = 5;
+                    nr_pg = Math.ceil(nr_prod/prod_per_pg)
+                    
+                    //generate the buttons
+                    %>
+                    <div id="buton_pagina" class="btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+                    
+                        <p>
+                            <label class="btn btn-warning my-3 mx-2 pg-btn-sizes d-flex justify-content-center align-items-center">
+                                1
+                                <input style="display: none;" id="page_rad1" checked="true" name="pg_rad" type="radio"/>
+                            </label>
+                        </p>
+                    <%
+                        for(let pg_idx = 2; pg_idx <= nr_pg; pg_idx++){ %>
+                            <p>
+                                <label class="btn btn-warning my-3 mx-2 pg-btn-sizes d-flex justify-content-center align-items-center">
+                                    <%-pg_idx%>
+                                    <input style="display: none;" id="page_rad<%-pg_idx%>" name="pg_rad" type="radio"/>
+                                </label>
+                            </p>
+                        <%}
+                    %>
+                    </div>
+                    <%
+                    
+                %>
 
           
         </section>

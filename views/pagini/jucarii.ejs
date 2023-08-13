@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+       
+        <link href="/resurse/css/elevi.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src=/resurse/js/elevi.js></script>
+
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Jucarii</h1>
+        </header>
+
+        <main>
+            <button id="cres">Sorteaza crescator</button>
+            <button id="desc">Sorteaza desrescator</button>
+
+            <div id="grid1">
+            <%for(let j of locals.jucarii){ %>
+                <article class="jucarie">
+                    <h2>Nume: <div class="nume"><%-j.nume%></div>
+                    </h2>
+                    <p>Varsta minima pentru a te juca cu aceasta jucarie: <%-j.varsta_minima%></p>
+                    <div class="culori"><%-j.culori%></div>
+                   <%
+                    var culori=document.getElementsByClassName("culori");
+                    var v_culori= Array.from(culori);
+                    %>
+                    <ul>
+                    <% for(i=1;i<=v_culori.length();i++){ %>
+                        <li><%v_culori[i]%></li>
+                        <%}%>
+                </article>
+
+            <%}%>
+
+
+    </main>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
