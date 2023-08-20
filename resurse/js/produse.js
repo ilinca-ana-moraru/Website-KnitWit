@@ -2,9 +2,8 @@ window.addEventListener("load", function(){
 
     // document.getElementById("buton-pastrare").onchange=function(){
     // if(document.getElementById("buton1").checked){
-    //     document.getElementById("icon-buton1").className('fa-solid fa-thumbs-up');
+    //     document.getElementById("icon-buton1").classList.remove('fa-solid fa-thumbs-up');
     //     document.getElementById("icon-buton1").classList.add('fa-solid fa-thumbtack');
-    //             //???
     //     document.getElementsByClassName("val-nume")[0].style.color="pink";
     // }
 
@@ -174,6 +173,7 @@ window.addEventListener("load", function(){
 
             let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
             let cond5 =(nume.startsWith(val_nume));
+            //length si for si numar diferentele 
 
             //range-pret
             pret=parseInt(prod.getElementsByClassName("val-pret")[0].innerHTML);
@@ -200,12 +200,8 @@ window.addEventListener("load", function(){
                     cond9=true;
             }
 
-            let pastrat=false;
-            if(document.getElementById("buton1").checked=="true"){
-                pastrat=true;
-            }
 
-            if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8 && cond9){
+            if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8 && cond9 ){
                 prod.style.display="block";
             }
         
@@ -232,7 +228,7 @@ window.addEventListener("load", function(){
         for(let prod of produse){
             prod.style.display="block";
         }
-        // afiseaza_pagina_curenta();
+        afiseaza_pagina_curenta();
     }
 
     function sorteaza(semn){

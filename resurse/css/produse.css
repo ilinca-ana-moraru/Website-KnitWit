@@ -181,3 +181,7 @@ main{
 /* #butoane-filtrare{
     display:inline;
 } */
+
+.lista-proprietati li{
+    list-style-type: square;
+}

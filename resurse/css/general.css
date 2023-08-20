@@ -23,6 +23,7 @@ body{
     --verde-deschis:#d3e6cc;
     --gri:#71736E;
     --roz-inchis:#c5647e;
+    --roz-inchis:#7ca2a5;
     --border-color:#261F20;
  
     --footer-color:#261F20;
@@ -37,7 +38,7 @@ body{
     --background-color:#d3e6cc;
     --header-footer-text-color:#71736E;
   
-    --spatiere-pagina: 10px;
+    --spatiere-pagina: 25px;
     --padding-sectiune:15px;
 
     --latime-buton: 20vw;
@@ -82,6 +83,7 @@ body.happy{
     --galben:#F6F5BD;
     --albastru:#C5F7F6;
     --roz:#F7C4D4;
+    --roz:#83abae;
     --background-color:var(--albastru);
     background-color: var(--background-color) ;
 
@@ -120,10 +122,11 @@ body{
 header{
     color:var(--header-color);
     background: var(--header-background);
-    margin-left: calc(-1 * var(--spatiere-pagina));
+    margin-left: calc(-1 * var(--spatiere-pagina) );
     margin-right: calc(-1 * var(--spatiere-pagina));
-    /* border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw; */
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 footer{
@@ -135,6 +138,10 @@ footer{
     padding-top:2vw;
     border-top-right-radius: 1vw;
     border-top-left-radius: 1vw;
+    padding-left: 20px;
+    padding-right: 20px;
+
+
     /* justify-content: center; */
  
 }
@@ -152,6 +159,8 @@ footer{
     animation-name: animatie_banner;
     animation-duration: 3s;
     animation-timing-function: linear;
+    margin-left: calc(-1 * var(--spatiere-pagina));
+    margin-right: calc(-1 * var(--spatiere-pagina));
 }
 
 
@@ -273,3 +282,9 @@ footer a[href^="http"]::before{
     }
 }
 
+#form_inreg{
+    justify-content: right;
+    /* background-color: fuchsia; */
+    left: 80px;
+
+}
