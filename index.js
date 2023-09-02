@@ -255,7 +255,17 @@ app.get("/produse", function(req, res) {
                             console.log(err);
                             afisareEroare(res, 2);
                         } else {
-                            res.render("pagini/produse", { produse: rez.rows, optiuni: rezCategorie.rows, branduri: rezBrand.rows, compozitie:obGlobal.optiuniMateriale });
+                            client.query("select MAX(pret) from produse", function(err,rezPretMax){
+                                if (err) {
+                                    console.log("eroare:");
+                                    console.log(err);
+                                    afisareEroare(res, 2);
+                                } else {
+                                    console.log("cel mai mare pret e :",rezPretMax.rows[0]);
+                                    res.render("pagini/produse", { produse: rez.rows, optiuni: rezCategorie.rows, branduri: rezBrand.rows, compozitie:obGlobal.optiuniMateriale, pretMax:rezPretMax.rows[0].max });
+
+                                }
+                            })
                         }
                     });
                 }

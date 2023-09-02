@@ -59,7 +59,7 @@
         </label>
 
         
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70" step=""> <span id="infoRange">(0)</span></label>
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="<%-locals.pretMax%>" step=""> <span id="infoRange">(0)</span></label>
 
 
         <label class="mx-2">Select simplu:
@@ -99,57 +99,73 @@
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <h3 class="nume">artc-<%-prod.id%> Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
-                            <div class="pret"><span class="criteriu">Pret: </span><span class="val-pret"><%- prod.pret%> lei</span> </div>
-                                                        <!-- da -->
-                            <ol class="lista_proprietati">
-                                <li class="grosime"><span class="criteriu">Grosime: </span><span class="val-grosime"><%- prod.grosime%> mm</span></li>
-                                <li class="spalabil_la_masina"><span class="criteriu">Poate fi spalat la masina: </span><span class="val-spalabil_la_masina"><%- prod.spalabil_la_masina%></span></li>
+                            <span id="coloana1">
 
-                            </ol>
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                                <ol class="lista_proprietati">
+                                    <li class="pret"><span class="criteriu">Pret: </span><span class="val-pret"><%- prod.pret%> lei</span> </li>
+                                    <li class="spalabil_la_masina"><span class="criteriu">Poate fi spalat la masina: </span><span class="val-spalabil_la_masina"><%- prod.spalabil_la_masina%></span></li>
+                                    <li class="brand"><span class="criteriu">Brand: </span><span class="val-brand"><%- prod.brand%></span></li>
+                                    <li class="compozitie1"><span class="criteriu">Compozitie:</span><span class="val-compozitie"> <%- prod.compozitie%></span></li>
+                                    <!-- 15 Septembrie 2018 [Sambata] -->
+                                    <%
+                            zile=["Duminica","Luni","Marti","Miercuri","Joi","Vineri","Sambata"];
+                            luni=["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"];
+                            sir_data=`${prod.data_adaugare.getDate()} ${luni[prod.data_adaugare.getMonth()]} ${prod.data_adaugare.getFullYear()} [${zile[prod.data_adaugare.getDay()]}]`
+                            %>
+                                    <li class="data"><span class="criteriu">Disponibil din: </span><span class="val-data"><time><%- sir_data %></time></span></li>
+                                </ol>
+
+                            </span>
+
+                            <span id="coloana2">
+
+                                <div class="descriere">Descriere: </span><span class="val-descriere"><%- prod.descriere%></div>
+                                <div class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></div> 
+
+                            </span>
+                            <li class="grosime"><span class="criteriu">Grosime: </span><span class="val-grosime"><%- prod.grosime%> mm</span></li>
+
                             <div class="gramaj"><span class="criteriu">Gramaj: </span><span class="val-gramaj"><%- prod.gramaj%> g</span></div>
-                            <div class="brand"><span class="criteriu">Brand: </span><span class="val-brand"><%- prod.brand%></span></div>
                                                         <!-- da -->
                                                         <!-- da -->
                             <div class="pentru_sosete"><span class="criteriu">Pentru sosete: </span><span class="val-pentru_sosete"><%- prod.pentru_sosete%></span></div> 
 
-                            <div class="compozitie"><span class="criteriu">Compozitia produsului: </span><span class="val-compozitie"><%- prod.compozitie%></span></div>
                             <!-- da -->
-                            <div class="data"><span class="criteriu">Disponibil din: </span><span class="val-data"><%- prod.data_adaugare%></span></div>
 
-                            <div class="descriere"><span class="criteriu">Descriere: </span><span class="val-descriere"><%- prod.descriere%></span></div>
-                            
-                       
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p> 
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
+                        
+                        </div>
                         <!-- <label class="selecteaza-cos">
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label> -->
 
                         <!-- style="display: none;" -->
+                                                        <!-- <i class="fa-solid fa-thumbtack"></i> -->
+
                         <div id="butoane-filtrare">
-                            <label id="buton1">
-                                <i id="icon-buton1" class="fa-solid fa-thumbs-up"></i>
-                                <!-- <i class="fa-solid fa-thumbtack"></i> -->
-                                <div id="text-buton1">Pastreaza produsul indiferent de filtrare</div>
-                                <input  id="buton-pastrare" name="pastrare" type="checkbox" >
+                            <label class="buton1" id="a<%-prod.id%>" name="buton-pastrare">
+                                <i class="icon-buton1 fa-solid fa-thumbs-up"></i>
+                                <div id="text-buton1">Pastreaza produsul </br> indiferent de filtrare</div>
+                                <input type="checkbox" style="display: none;">
                             </label>
 
-                            <label id="buton2">
-                                <i class="fa-solid fa-x"></i>
-                                <div id="text-buton2">Elimina produsul pentru aceasta filtrare</div>
-                                <input style="display: none;" id="buton-stergere-filtrare" name="stergere-filtrare" type="checkbox" >
+                            <label class="buton2" id="a<%-prod.id%>"  name="stergere-filtrare">
+                                <i id="icon-buton2" class="fa-solid fa-x"  ></i>
+                                <div id="text-buton2">Elimina produsul </br> pentru aceasta filtrare</div>
+                                <input  type="checkbox" style="display: none;">
                             </label>
 
-                            <label id="buton3">
-                                <i class="fa-solid fa-trash"></i>
-                                <div id="text-buton3">Elimina produsul pentru aceasta sesiune</div>
-                                <input style="display: none;" id="buton-stergere-sesiune" name="stergere-sesiune" type="checkbox" >
+                            <label class="buton3" id="a<%-prod.id%>"  name="stergere-sesiune">
+                                <i id="icon-buton3" class="fa-solid fa-trash"  ></i>
+                                <div id="text-buton3">Elimina produsul </br> pentru aceasta filtrare</div>
+                                <input  type="checkbox" style="display: none;">
                             </label>
+
                         </div>
                         
 

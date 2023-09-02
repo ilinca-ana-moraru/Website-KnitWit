@@ -1,14 +1,96 @@
 window.addEventListener("load", function(){
 
-    // document.getElementById("buton-pastrare").onchange=function(){
-    // if(document.getElementById("buton1").checked){
-    //     document.getElementById("icon-buton1").classList.remove('fa-solid fa-thumbs-up');
-    //     document.getElementById("icon-buton1").classList.add('fa-solid fa-thumbtack');
-    //     document.getElementsByClassName("val-nume")[0].style.color="pink";
-    // }
+ 
+    butoane_salvare_produs = document.getElementsByClassName("buton1");
+    for(let bt of butoane_salvare_produs){
+        bt.onclick=function(){
+            let id_produs=this.id.substr(1);
+            let de_sters=7;
+            
+            //nu stim daca e de sters sau pastrat
+            let locSt = localStorage.getItem("produse_pastrate");
+            if(de_sters == 7){
+                if(!(locSt)){
+                    de_sters = 0;
+                    console.log("nu am localStorage");
+                }
 
-    // }
+                else if(locSt){
+                    console.log("am localStorage");
+                    string_iduri=localStorage.getItem("produse_pastrate");
+                    console.log("string iduri inainte de adaugare: ", string_iduri);
     
+                    vector_iduri=string_iduri.split(",");
+                    console.log("vector iduri inainte de adaugare: ", vector_iduri);
+                            
+                    
+                    for(let i = 0; i < vector_iduri.length; i++){
+                        if(vector_iduri[i] == id_produs){ 
+                            de_sters = 1;
+                        }
+                    }
+                }
+                    if(de_sters == 7)//daca nu am gasit butonul in lcSt, butonul e de adaugat
+                        de_sters = 0;
+
+                }
+                console.log("de sters: ",de_sters);
+            
+                if(de_sters == 0){
+                    if(!(localStorage.getItem("produse_pastrate"))){
+                        localStorage.setItem("produse_pastrate",id_produs);
+                    }
+                    else{
+                        string_iduri=localStorage.getItem("produse_pastrate")+","+id_produs;
+                        localStorage.setItem("produse_pastrate",string_iduri);
+                    }
+                }
+
+                else if(de_sters == 1){
+                    string_iduri = "";
+                    for(let i = 0; i < vector_iduri.length; i++){
+                        if(vector_iduri[i] != id_produs){ 
+                                if(string_iduri == "")
+                                    string_iduri = string_iduri+vector_iduri[i];
+                                else
+                                    string_iduri += ","+vector_iduri[i];
+                            }
+                        }
+                        if(string_iduri)
+                            localStorage.setItem("produse_pastrate",string_iduri);
+                        else
+                            localStorage.removeItem("produse_pastrate");
+                }
+            filtrare();
+            }
+            
+    }
+
+    butoane_stergere_produs = document.getElementsByClassName("buton2");
+    for(let bt of butoane_stergere_produs){
+        bt.onclick=function(){
+            bt.parentNode.parentNode.style.display="none";
+        }
+    }
+     
+
+    butoane_stergere_produs = document.getElementsByClassName("buton3");
+    for(let bt of butoane_stergere_produs){
+        bt.onclick=function(){
+            let id_produs=this.id.substr(1);
+            if(!(sessionStorage.getItem("produse_sterse"))){
+                sessionStorage.setItem("produse_sterse",id_produs);
+            }
+            else{
+                string_iduri=sessionStorage.getItem("produse_sterse")+","+id_produs;
+                sessionStorage.setItem("produse_sterse",string_iduri);
+            }
+                
+            filtrare();
+        }
+            
+    }
+
         function afiseaza_pagina_curenta(){
             var pagina_curenta=1;
             var prod_per_pg = 5;
@@ -32,11 +114,7 @@ window.addEventListener("load", function(){
                 }
             }
 
-            // for(let i =Math.ceil(produse_pagina.length/prod_per_pg)+1 ; i <= nr_pg; i++){
-            //     document.getElementById("page_rad" + i.toString()).style.display="none";
-            // }
-
-            
+       
             //la loadul paginii vrem doar produsele de pe prima pagina
             for(let prod_idx = 0; prod_idx < produse_pagina.length; prod_idx ++){
                 if(Math.floor(prod_idx / prod_per_pg) != pagina_curenta-1){
@@ -49,6 +127,10 @@ window.addEventListener("load", function(){
         }
     
         afiseaza_pagina_curenta();
+
+    
+            document.getElementById("infoRange").innerHTML=document.getElementById("inp-pret").value;
+            filtrare();
 
     document.getElementById("inp-pret").onchange=function(){
         document.getElementById("infoRange").innerHTML=`(${this.value})`;
@@ -72,6 +154,10 @@ window.addEventListener("load", function(){
     document.getElementById("buton_pagina").onchange = filtrare
 
     
+
+
+
+
     function filtrare(){
         var produse=document.getElementsByClassName("produs");
         //text cautare
@@ -172,9 +258,21 @@ window.addEventListener("load", function(){
             //text
 
             let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
-            let cond5 =(nume.startsWith(val_nume));
-            //length si for si numar diferentele 
+            let cond5 = true;
+            if(val_nume.length!=0){
+                //length si for si numar diferentele 
+                if(nume.length!=val_nume.length)
+                    cond5=false;
 
+                    litere_diferite = 0;
+                    for(let i = 0; i < nume.length; i++){
+                        if(nume[i] != val_nume[i])
+                        litere_diferite++;
+                    }
+                    console.log("val nume: ",val_nume);
+                    if(litere_diferite > 2)
+                        cond5 = false;
+            }
             //range-pret
             pret=parseInt(prod.getElementsByClassName("val-pret")[0].innerHTML);
             let  cond6=(val_pret <= pret);
@@ -200,8 +298,49 @@ window.addEventListener("load", function(){
                     cond9=true;
             }
 
+            let cond10=false;
+            id_pr = prod.getElementsByClassName("buton1")[0].id.substr(1);
+            // console.log("id_pr: ",id_pr);
+            string_iduri=localStorage.getItem("produse_pastrate");
+            if(string_iduri){
+                vector_iduri=string_iduri.split(",");
+                for(let i = 0; i < vector_iduri.length; i++){
+                    if(vector_iduri[i] == id_pr){ 
+                        cond10=true;
+                      
+                    }
+                                 
+                }
+            }
 
-            if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8 && cond9 ){
+            let cond11=true;
+            id_pr = prod.getElementsByClassName("buton3")[0].id.substr(1);
+
+            string_iduri=sessionStorage.getItem("produse_sterse");
+            if(string_iduri){
+                vector_iduri=string_iduri.split(",");
+                for(let i = 0; i < vector_iduri.length; i++){
+                    if(vector_iduri[i] == id_pr){ 
+                        cond11=false;
+                      
+                    }
+                                 
+                }
+            }
+        
+            if(cond10 && prod.getElementsByClassName("icon-buton1")[0].classList.contains("fa-thumbs-up")){
+                prod.getElementsByClassName("nume")[0].style.color="red";
+                prod.getElementsByClassName("icon-buton1")[0].classList.remove("fa-thumbs-up");
+                prod.getElementsByClassName("icon-buton1")[0].classList.add("fa-thumbtack");
+            }
+
+            if (cond10==false && prod.getElementsByClassName("icon-buton1")[0].classList.contains("fa-thumbtack") ){
+                prod.getElementsByClassName("nume")[0].style.color="var(--text-color)";
+                prod.getElementsByClassName("icon-buton1")[0].classList.remove("fa-thumbtack");
+                prod.getElementsByClassName("icon-buton1")[0].classList.add("fa-thumbs-up");
+            }   
+
+            if((cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8 && cond9 && cond11) || cond10){
                 prod.style.display="block";
             }
         

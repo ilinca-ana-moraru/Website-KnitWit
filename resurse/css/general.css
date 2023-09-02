@@ -282,9 +282,18 @@ footer a[href^="http"]::before{
     }
 }
 
-#form_inreg{
-    justify-content: right;
-    /* background-color: fuchsia; */
-    left: 80px;
+#c2{
+    text-align: right;
+   
+    right: 10px;
+    top:10;
 
+}
+
+#Pagina_Principala{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "z-c1" "z-c2"
+                        ;  
 }

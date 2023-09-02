@@ -1,11 +1,12 @@
 <script src="/resurse/js/tema.js"></script>
-<script type="text/javascript" src=/../module_proprii/utilizator.js></script>
 
 <header id="Pagina_Principala">
+    <div id="c1">
     <h1 >Knit Wit <span id ="heart" class="fa-solid fa-heart"></span></h1></br>
     <q>We don’t make mistakes, just happy little accidents.</q>
     <cite>Bob Ross</cite>
-    <!-- <p> da eroare cand pui utilizator inexistent -> 5 min cauta rezolvarea daca nu te ajut eu -->
+    </div>
+    <div id="c2">
         <% 
         if(!locals.utilizator) 
         {%>
@@ -44,6 +45,7 @@
                 <button><a href="/logout">Logout</a></button>
                 <br>
             </p>
+    </div>
         <%}%>
 
 </header>

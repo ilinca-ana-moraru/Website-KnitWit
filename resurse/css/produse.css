@@ -30,6 +30,20 @@ main{
     
 }
 
+.compozitie:hover {
+    overflow:visible;
+}
+
+.compozitie{
+    width: 200px;
+    height:25px;
+    display: flex;
+    overflow:hidden;
+}
+
+
+
+
 .grid-produse .produs h3{
     background-color: var(--border-produs);
     text-align: center;
@@ -51,25 +65,35 @@ main{
     border:1px solid grey;
 }
 
+.grid-produse .produs .info-prod{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "z-coloana1" "z-coloana2"
+                        ;  
+}
 .grid-produse .produs .info-prod div{
     text-align: center;
 
 }
-.grid-produse .produs .info-prod div .criteriu{
+.criteriu{
 
     font-weight: bold;
     color: var(--roz-inchis) ;
 }
 
-.grid-produse .produs .info-prod .descriere{
-    display: none;
+/* ?? */
+#coloana2{
+    align-items: center;
 }
 
-.grid-produse .produs .info-prod .compozitie{
-    display: none;
-}
 
 .grid-produse .produs .info-prod .grosime{
+    display: none;
+}
+
+.grid-produse .produs .info-prod .pentru_sosete{
     display: none;
 }
 
@@ -89,13 +113,6 @@ main{
 
 }
 
-.grid-produse .produs p.categorie{
-
-    text-align:center;
-    font-weight:bold;
-    display: none;
- 
-}
 
 .info-produse{
     background-color: var(--cl-marcare);
@@ -111,13 +128,12 @@ main{
     width: 200px;
     height:25px;
     display: flex;
-    overflow:hidden;
 }
 
 
-.compozitie:hover {
+/* .compozitie:hover {
     overflow:visible;
-}
+} */
 
 
 
@@ -150,7 +166,7 @@ main{
     opacity: var(--opac-text1);
 }
 
-#buton1:hover{
+.buton1:hover{
     --opac-text1:1;
 }
 
@@ -161,7 +177,7 @@ main{
     opacity: var(--opac-text2);
 }
 
-#buton2:hover{
+.buton2:hover{
     --opac-text2:1;
 }
 
@@ -173,14 +189,15 @@ main{
     opacity: var(--opac-text3);
 }
 
-#buton3:hover{
+.buton3:hover{
     --opac-text3:1;
 }
 
 
-/* #butoane-filtrare{
+#butoane-filtrare{
     display:inline;
-} */
+    text-align: center;
+}
 
 .lista-proprietati li{
     list-style-type: square;
